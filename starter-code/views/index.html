@@ -9,14 +9,25 @@
   <body>
     <h2>Pick a Number!</h2>
     <p id="high-low-correct"></p>
-    <form id="guess-number-form">
+    <form id="guess-number-form" action="/api/guess">
       <input id="guess-num" name="number" placeholder="guess a number" type="text" />
       <input type="submit" />
     </form>
     <p>Change Target Number?</p>
-    <form id="target-number-form">
+    <form id="target-number-form" method="POST" action="/api/guess">
       <input id="new-num" name="number" placeholder="enter new target number" type="text" />
       <input type="submit" />
     </form>
+
+
+    <p>Add to artworks</p>
+    <form id="art-form" method="POST" action="/api/artworks">
+      <input id="name" name="title" placeholder="title for artwork" type="text" required/>
+            <input  name="artist" placeholder="artist " type="text" required/>
+                  <input  name="disc" placeholder="discription" type="text" />
+      <input type="submit" />
+    </form>
+
+
   </body>
 </html>
