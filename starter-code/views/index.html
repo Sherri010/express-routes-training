@@ -19,15 +19,42 @@
       <input type="submit" />
     </form>
 
-
     <p>Add to artworks</p>
-    <form id="art-form" method="POST" action="/api/artworks">
+    <form id="art-form" >
       <input id="name" name="title" placeholder="title for artwork" type="text" required/>
             <input  name="artist" placeholder="artist " type="text" required/>
                   <input  name="disc" placeholder="discription" type="text" />
       <input type="submit" />
     </form>
+  <div id="res"> </div>
+    <script>
+     $('#art-form').submit(function(event){
+        event.preventDefault();
+        console.log("doin ajax");
+        $.ajax({
+          method:"POST",
+          url:"http://localhost:3000/api/artworks",
+          data:$('#art-form').serialize(),
+          success:function(data){
 
+          //  var i=0;
+          var div = document.getElementById('res');
+         for(var key in data){
+           div.innerHTML += "<br>"+data[key].artist;
+         }
+
+          //  for(var i=0 ; i< data.length; i++){
+          //       div.innerHTML += "  "+data[i].artist;  //   i++;
+          //  }
+            ////  $('#res').innerHTML ="hi"+ data.toString();
+              console.log(data);
+          }
+        })
+
+     })
+
+
+    </script>
 
   </body>
 </html>

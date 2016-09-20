@@ -62,8 +62,8 @@ app.get('/api/artworks',function(request,response){
 })
 
 app.post('/api/artworks',function(request,response){
-  var piece = {title: request.body.title , artist : request.body.artist , dicription:request.body.disc }
-     artworks.push(piece);
+  //var piece = {title: request.body.title , artist : request.body.artist , dicription:request.body.disc }
+  artworks.push( request.body );
    response.json(artworks);
 
 })
